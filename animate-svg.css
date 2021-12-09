@@ -1,0 +1,162 @@
+/* тестовая обертка что бы нормально выглядело все */
+
+.test-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 200px 20px;
+    grid-gap: 20px;
+}
+
+
+/* тут уже код анимации самой */
+
+.animation-svg svg {
+    width: 100%;
+}
+
+
+/* as-1 */
+
+.particle {
+    animation: particle 4s ease-in infinite;
+    transform-origin: center center;
+}
+
+.particles {
+    opacity: 0;
+    transition: opacity 150ms linear;
+}
+
+@keyframes particle {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.95);
+    }
+    20% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 0) scale(1.1);
+    }
+}
+
+.left-hand {
+    transform-origin: left bottom;
+    animation: hand-shake 2s alternate ease-in infinite;
+    animation-play-state: paused;
+}
+
+@keyframes hand-shake {
+    0% {
+        transform: rotate(-3deg) translate(0, 0);
+    }
+    100% {
+        transform: rotate(3deg) translate(0, -2%);
+    }
+}
+
+.as-1:hover .particles {
+    opacity: 1;
+}
+
+.as-1:hover .left-hand {
+    animation-play-state: running;
+}
+
+
+/* as-2 */
+
+.animation-svg {
+    overflow: hidden;
+}
+
+.cloud-group,
+.particles {
+    opacity: 0;
+    transition: opacity 150ms linear;
+}
+
+.as-2:hover .cloud-group {
+    opacity: 1;
+}
+
+.cloud-stroke,
+.cloud-fill {
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+
+.cloud-stroke.cloud-1,
+.cloud-fill.cloud-1 {
+    animation-duration: 5s;
+    animation-name: cloud-fly-1;
+}
+
+.cloud-stroke.cloud-2,
+.cloud-fill.cloud-2 {
+    animation-duration: 5s;
+    animation-name: cloud-fly-2;
+}
+
+.cloud-stroke.cloud-3,
+.cloud-fill.cloud-3 {
+    animation-duration: 6s;
+    animation-name: cloud-fly-3;
+}
+
+@keyframes cloud-fly-1 {
+    0% {
+        opacity: 0;
+        transform: translate(10%, 0);
+    }
+    15% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-15%, 0);
+    }
+}
+
+@keyframes cloud-fly-2 {
+    0% {
+        opacity: 0;
+        transform: translate(0%, 0);
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-90%, 0);
+    }
+}
+
+@keyframes cloud-fly-3 {
+    0% {
+        opacity: 0;
+        transform: translate(2%, 0);
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-70%, 0);
+    }
+}
