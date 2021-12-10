@@ -160,3 +160,168 @@
         transform: translate(-70%, 0);
     }
 }
+
+
+/* as-3 */
+
+.map-dot {
+    animation-name: map-dot;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    transform-origin: center center;
+    animation-duration: 3s;
+}
+
+.dot-1 {
+    animation-delay: 1s;
+}
+
+.dot-2 {
+    animation-delay: 2s;
+}
+
+.dot-3 {
+    animation-delay: 3s;
+}
+
+.dot-6 {
+    animation-delay: 2.5s;
+}
+
+.map-dots {
+    opacity: 0;
+    transition: opacity 150ms linear;
+}
+
+@keyframes map-dot {
+    0% {
+        opacity: 0;
+        transform: translate(2%, 0) scale(1.1);
+    }
+    20% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.95);
+    }
+}
+
+.map-pin {
+    transform-origin: center center;
+    animation: pin-shake 2s alternate ease-in infinite;
+    animation-play-state: paused;
+}
+
+@keyframes pin-shake {
+    0% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+.as-3:hover .map-pin {
+    animation-play-state: running;
+}
+
+.as-3:hover .map-dots {
+    opacity: 1;
+}
+
+
+/* as-4 */
+
+.smoke-line.line-1 {
+    stroke-dasharray: 49;
+    stroke-dashoffset: 250;
+    animation: dash-1 3s ease-in infinite;
+    animation-delay: 2s;
+}
+
+.smoke-line.line-2 {
+    stroke-dasharray: 59;
+    stroke-dashoffset: 90;
+    animation: dash-2 3s ease-in infinite;
+    animation-delay: 7s;
+}
+
+.smoke-line.line-3 {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 100;
+    animation-delay: 4s;
+    animation: dash-2 2s ease-in infinite;
+}
+
+.smoke {
+    opacity: 0;
+    transition: opacity 150ms linear;
+}
+
+@keyframes dash-1 {
+    0% {
+        stroke-dashoffset: 250;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 150;
+        opacity: 0;
+    }
+}
+
+@keyframes dash-2 {
+    0% {
+        stroke-dasharray: 59;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        stroke-dasharray: 30;
+        opacity: 0;
+    }
+}
+
+.p-step {
+    animation: p-step 5s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes p-step {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        width: 38%;
+        opacity: 0;
+    }
+}
+
+.as-4:hover .p-step {
+    animation-play-state: running;
+}
+
+.as-4:hover .smoke {
+    opacity: 1;
+}
